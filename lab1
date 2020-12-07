@@ -1,0 +1,41 @@
+import java.util.*;
+
+public class SolvingQe {
+
+	public static void main(String[] args) {
+		try {
+		Scanner in = new Scanner(System.in);
+		
+		System.out.println("Enter a, b and c for the quardatic equation");
+		
+		double a = in.nextDouble();
+			if(a == 0) throw new IllegalArgumentException("a cannot be 0");
+		double b = in.nextDouble();
+		double c = in.nextDouble();
+		double root1, root2, discriminant;
+		
+        
+		QuadraticEquation ans = new QuadraticEquation(a, b, c);
+		discriminant = ans.getDiscriminant();
+		
+		if(discriminant > 0) {
+			root1 = ans.getRoot1();
+			root2 = ans.getRoot1();
+			System.out.printf("Root 1 = %.2f Root 2 = %.2f",root1, root2);
+			System.exit(0);
+		}
+		if(discriminant == 0) {
+			root1 = ans.getRoot1();
+			System.out.printf("Root 1 = %.2f ",root1);
+		}
+		else {
+			System.out.println("The equation has no roots.");
+		}
+		
+		}catch(InputMismatchException e) {
+			System.out.println(e);
+		}
+		
+	}
+	
+}
